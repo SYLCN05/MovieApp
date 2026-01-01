@@ -1,0 +1,48 @@
+## --- Visual Studio / .NET Core ---
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Gebruikerspecifieke bestanden
+.DS_Store
+*.swp
+
+# Gebruikersinstellingen van de app
+appsettings.Development.json
+
+## --- Angular / Node.js ---
+# Afhankelijkheden
+node_modules/
+.npm/
+
+# Build output
+dist/
+/tmp/
+/out-tsc/
+/.angular/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Test resultaten
+/coverage/
+
+# IDE instellingen voor Angular
+.editorconfig
+
+## --- Databases ---
+# Lokale database bestanden (SQL Server Express / LocalDB)
+*.mdf
+*.ldf
+*.sdf
+
+## --- Besturingssysteem ---
+Thumbs.db
+ehthumbs.db
+Desktop.ini
