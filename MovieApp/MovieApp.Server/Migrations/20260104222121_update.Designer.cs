@@ -11,8 +11,8 @@ using MovieApp.Server.Models;
 namespace MovieApp.Server.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20260101205344_initial")]
-    partial class initial
+    [Migration("20260104222121_update")]
+    partial class update
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -148,6 +148,63 @@ namespace MovieApp.Server.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("MovieApp.Server.Models.Movie", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Certificate")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Director")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Genre")
+                        .HasColumnType("longtext");
+
+                    b.Property<double?>("IMDB_Rating")
+                        .HasColumnType("double");
+
+                    b.Property<int?>("Meta_score")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("No_of_Votes")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Overview")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Poster_Link")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Released_Year")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Runtime")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Series_Title")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Star1")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Star2")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Star3")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Star4")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Movies");
                 });
 
             modelBuilder.Entity("MovieApp.Server.Models.MovieUser", b =>

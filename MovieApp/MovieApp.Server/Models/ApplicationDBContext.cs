@@ -15,7 +15,7 @@ namespace MovieApp.Server.Models
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<Movie>().HasNoKey();
+            //builder.Entity<Movie>().HasNoKey();
         }
         public DbSet<Movie> Movies => Set<Movie>();
     }

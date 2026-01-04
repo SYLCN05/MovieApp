@@ -7,7 +7,7 @@ using MySql.EntityFrameworkCore.Metadata;
 namespace MovieApp.Server.Migrations
 {
     /// <inheritdoc />
-    public partial class initial : Migration
+    public partial class update : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -53,6 +53,34 @@ namespace MovieApp.Server.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Movies",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    Poster_Link = table.Column<string>(type: "longtext", nullable: true),
+                    Series_Title = table.Column<string>(type: "longtext", nullable: false),
+                    Released_Year = table.Column<string>(type: "longtext", nullable: true),
+                    Certificate = table.Column<string>(type: "longtext", nullable: true),
+                    Runtime = table.Column<string>(type: "longtext", nullable: true),
+                    Genre = table.Column<string>(type: "longtext", nullable: true),
+                    IMDB_Rating = table.Column<double>(type: "double", nullable: true),
+                    Overview = table.Column<string>(type: "longtext", nullable: true),
+                    Meta_score = table.Column<int>(type: "int", nullable: true),
+                    Director = table.Column<string>(type: "longtext", nullable: true),
+                    Star1 = table.Column<string>(type: "longtext", nullable: true),
+                    Star2 = table.Column<string>(type: "longtext", nullable: true),
+                    Star3 = table.Column<string>(type: "longtext", nullable: true),
+                    Star4 = table.Column<string>(type: "longtext", nullable: true),
+                    No_of_Votes = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Movies", x => x.Id);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
@@ -222,6 +250,9 @@ namespace MovieApp.Server.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Movies");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

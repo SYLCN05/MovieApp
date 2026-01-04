@@ -46,3 +46,4 @@ yarn-error.log*
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+/MovieApp/MovieApp.Server/Data/imdb_top_1000.csv

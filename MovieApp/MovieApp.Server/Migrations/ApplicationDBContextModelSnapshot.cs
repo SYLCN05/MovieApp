@@ -149,43 +149,38 @@ namespace MovieApp.Server.Migrations
 
             modelBuilder.Entity("MovieApp.Server.Models.Movie", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
                     b.Property<string>("Certificate")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Director")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Genre")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<decimal>("Gross")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double?>("IMDB_Rating")
+                        .HasColumnType("double");
 
-                    b.Property<int>("IMDB_Rating")
+                    b.Property<int?>("Meta_score")
                         .HasColumnType("int");
 
-                    b.Property<int>("Meta_score")
-                        .HasColumnType("int");
-
-                    b.Property<int>("No_Of_Votes")
+                    b.Property<int?>("No_of_Votes")
                         .HasColumnType("int");
 
                     b.Property<string>("Overview")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Poster_Link")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("Released_Year")
-                        .HasColumnType("int");
+                    b.Property<string>("Released_Year")
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Runtime")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Series_Title")
@@ -193,20 +188,18 @@ namespace MovieApp.Server.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("Star1")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Star2")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Star3")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Star4")
-                        .IsRequired()
                         .HasColumnType("longtext");
+
+                    b.HasKey("Id");
 
                     b.ToTable("Movies");
                 });
