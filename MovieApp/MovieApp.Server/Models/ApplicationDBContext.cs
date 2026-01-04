@@ -10,5 +10,7 @@ namespace MovieApp.Server.Models
         {
             
         }
+
+        public DbSet<Movie> Movies => Set<Movie>();
     }
 }
