@@ -6,9 +6,7 @@ namespace MovieApp.Server.Models
     [Table("Movies")]
     public class Movie
     {
-        [Required]
-        [Key]
-        public int Id { get; set; }
+        public string Poster_Link { get; set; }
         [Required]
         public string Series_Title { get; set; }
         public int Released_Year { get; set; }
