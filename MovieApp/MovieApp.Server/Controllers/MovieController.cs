@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MovieApp.Server.Models;
 
@@ -14,9 +15,17 @@ namespace MovieApp.Server.Controllers
             _context = context;
         }
         [HttpGet("GetMovies")]
-        public async Task<IEnumerable<Movie>> GetMovies()
+        public async Task<IEnumerable<Movie>> GetMovies(int pageIndex=0, int pageSize=10)
         {
-            return await _context.Movies.ToListAsync();
+            if(pageIndex >=0 || pageIndex <= 99)
+            {
+                return await _context.Movies.Skip(pageIndex * pageSize).Take(pageSize).ToListAsync();
+            }
+            else
+            {
+                return new List<Movie>();
+            }
+            
         }
     }
 }
