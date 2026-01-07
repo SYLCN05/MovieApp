@@ -48,7 +48,7 @@ namespace MovieApp.Server.Controllers
         }
 
         [HttpPost("Login")]
-        private async Task<ActionResult> Login(LoginUserDTO loginInput)
+        public async Task<ActionResult> Login(LoginUserDTO loginInput)
         {
             try
             {
@@ -86,6 +86,19 @@ namespace MovieApp.Server.Controllers
                         return StatusCode(StatusCodes.Status200OK, jwtString);
                     }
                 }
+                else
+                {
+                    var details = new ValidationProblemDetails(ModelState);
+                    details.Status = StatusCodes.Status400BadRequest;
+                    return new BadRequestObjectResult(details);
+                }
+            }catch(Exception e)
+            {
+                var exceptionDetails = new ProblemDetails();
+                exceptionDetails.Detail = e.Message;
+                exceptionDetails.Status = StatusCodes.Status401Unauthorized;
+
+                return StatusCode(StatusCodes.Status401Unauthorized, exceptionDetails);
             }
         }
 

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MovieApp.Server.Models
 {
-    public class ApplicationDBContext:IdentityDbContext<MovieUser, IdentityRole<string>, string>
+    public class ApplicationDBContext:IdentityDbContext<MovieUser, IdentityRole, string>
     {
         public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options):base(options) 
         {
@@ -15,7 +15,7 @@ namespace MovieApp.Server.Models
         {
             base.OnModelCreating(builder);
 
-            //builder.Entity<Movie>().HasNoKey();
+            
         }
         public DbSet<Movie> Movies => Set<Movie>();
     }

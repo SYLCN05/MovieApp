@@ -4,6 +4,7 @@ using CsvHelper;
 using CsvHelper.Configuration;
 using System.Globalization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 namespace MovieApp.Server.Controllers
 {
     [ApiController]
@@ -19,6 +20,7 @@ namespace MovieApp.Server.Controllers
             _environment = environment;
         }
         [HttpPut("AddMovieData")]
+        [Authorize]
         public async Task<IActionResult> MovieData()
         {
             var config = new CsvConfiguration(CultureInfo.GetCultureInfo("pt-BR"))
@@ -82,5 +84,8 @@ namespace MovieApp.Server.Controllers
                 SkippedRows = skippedRows
             });
         }
+
+
+
     }
 }
